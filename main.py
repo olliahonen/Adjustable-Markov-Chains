@@ -7,17 +7,17 @@ def gen(m):
 
 # Initialize the chain and train it on a few of my reddit posts.
 mkv = MarkovChain()
-mkv.bulk_train('training_data\\*.txt', verbose=True)
+mkv.bulk_train('training_data/*.txt', verbose=True)
 # Or,
 # mkv.load_training('training01.txt')
 
 # Store this information for later, so that there's no need to re-train the next time.
-mkv.save_training('stored_data\\training')
+mkv.save_training('stored_data/training')
 # Adjust the weights with the help of some fitness functions.
 mkv.bulk_adjust_weights(fitness_functions=[aw_favor_alternating_complexity, aw_mul(aw_favor_punctuation, 0.5)],
                         iterations=10000,
                         verbose=True)
 # Save the new state to a different file, to prevent feedback loops.
-mkv.save_training('stored_data\\training01')
+mkv.save_training('stored_data/training01')
 # Print a sample output after all weights have been adjusted.
 print(gen(mkv))
