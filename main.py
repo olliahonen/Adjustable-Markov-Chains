@@ -3,7 +3,7 @@ from training_algorithms import *
 
 # Builds a formatted string from the generator
 def gen(m):
-    return ''.join([w for w in m.generate_formatted(word_wrap=60, soft_wrap=True, start_with=None, max_len=100, verbose=True)])
+    return ''.join([w for w in m.generate_formatted(word_wrap=120, soft_wrap=True, start_with=None, max_len=110, verbose=True)])
 
 # Initialize the chain and train it on a few of my reddit posts.
 mkv = MarkovChain()
